@@ -1,0 +1,85 @@
+NOTA X PREÇO COM OUTLIER
+
+dfVinho <- dfVinho %>%
+ filter(!(country %in% "")) %>%
+ filter(!(region_2 %in% "")) %>%
+ filter(!(taster_name %in% 
+    "")) %>%
+ filter(!(taster_twitter_handle %in% ""))
+
+ggplot(dfVinho) +
+ aes(x = points, y = price) +
+ geom_point(size = 1L, colour = "#0c4c8a") +
+ theme_minimal()
+
+
+
+
+NOTA X PREÇO SEM OUTLIER
+
+
+dfVinho <- dfVinho %>%
+ filter(!(country %in% "")) %>%
+ filter(points >= 80L & points <= 95L) %>%
+ 
+    filter(price >= 4L & price <= 497L) %>%
+ filter(!(region_2 %in% "")) %>%
+ filter(!(taster_name %in% 
+    "")) %>%
+ filter(!(taster_twitter_handle %in% ""))
+
+ggplot(dfVinho) +
+ aes(x = points, y = price) +
+ geom_point(size = 1L, colour = "#0c4c8a") +
+ theme_minimal()
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ VARIACAO DE (NOTA X PESSOA AVALIADOR)
+ 
+ dfVinho <- dfVinho %>%
+ filter(!(country %in% "")) %>%
+ filter(!(region_2 %in% "")) %>%
+ filter(!(taster_name %in% 
+    "")) %>%
+ filter(!(taster_twitter_handle %in% ""))
+
+ggplot(dfVinho) +
+ aes(x = "", y = points, fill = taster_name) +
+ geom_boxplot() +
+ scale_fill_hue() +
+ theme_minimal()
+ 
+ 
+ 
+ 
+ 
+ VARIACAO DE (PRÇO X PESSOA AVALIADORA)
+ 
+ dfVinho <- dfVinho %>%
+ filter(!(country %in% "")) %>%
+ filter(!(region_2 %in% "")) %>%
+ filter(!(taster_name %in% 
+    "")) %>%
+ filter(!(taster_twitter_handle %in% ""))
+
+ggplot(dfVinho) +
+ aes(x = "", y = price, fill = taster_name) +
+ geom_boxplot() +
+ scale_fill_hue() +
+ theme_minimal()
+ 
+ 
+ 
+ 
+ 
+ AVALIAÇÃO DE NOTA X PAÍS DE ORIGEM DO VINHO
+ 
+ ggplot(dfVinho) +
+  aes(x = points, y = country) +
+  geom_boxplot(fill = "#0c4c8a") +
+  theme_minimal()
