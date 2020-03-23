@@ -83,3 +83,7 @@ ggplot(dfVinho) +
   aes(x = points, y = country) +
   geom_boxplot(fill = "#0c4c8a") +
   theme_minimal()
+  
+  
+  
+  ALTERAR A ULTIMA LINHA
